@@ -1,7 +1,7 @@
 {
   "name": "grunt-bustr",
   "description": "Cache busting on a per file basis.",
-  "version": "0.3.1",
+  "version": "0.0.1",
   "homepage": "https://github.com/kmulvey/grunt-bustr",
   "author": {
     "name": "Shutterstock Inc. - Kevin Mulvey",
@@ -22,10 +22,10 @@
   ],
   "main": "Gruntfile.js",
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-contrib-jshint": "~0.2.0",
-    "grunt-contrib-nodeunit": "~0.1.2"
-  },
+    "grunt": "",
+		"grunt-contrib-jshint": "",
+  	"grunt-contrib-nodeunit": ""
+	},
   "peerDependencies": {
     "grunt": "~0.4.0"
   },
