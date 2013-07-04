@@ -30,7 +30,7 @@
     "grunt": "~0.4.0"
   },
   "scripts": {
-    "build": "grunt"
+    "test": "grunt"
   },
   "keywords": [
     "gruntplugin",
