@@ -1,6 +1,7 @@
+'use strict';
+
 var path = require('path'), fs = require('fs'), spawn = require('child_process').spawn;
 
-'use strict';
 
 var VERSION = null;
 module.exports = function (grunt) {
@@ -22,7 +23,7 @@ module.exports = function (grunt) {
 			diff.stdout.setEncoding('utf8');
 			diff.stdout.on('data', function (data) {
 				var files = data.split( "\n" ).reverse().filter(function( file ) {
-					if(file === '') return false;
+					if(file === ''){ return false;}
 					updateVersion(path.basename(file.trim(), '.'+ext),ext);
 				});
 			});
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
 		});
 	}
 	function updateVersion(file, ext){
-		if(file === '') return;
+		if(file === ''){ return;}
 		var data= fs.readFileSync(VERSION, 'utf8');
 		data = JSON.parse(data);
 		data[ext][file] = Math.round((new Date()).getTime() / 1000);
