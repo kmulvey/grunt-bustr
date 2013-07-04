@@ -29,6 +29,9 @@
   "peerDependencies": {
     "grunt": "~0.4.0"
   },
+  "scripts": {
+    "build": "grunt"
+  },
   "keywords": [
     "gruntplugin",
     "cache"
