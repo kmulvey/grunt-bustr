@@ -2,7 +2,6 @@
 
 var path = require('path'), fs = require('fs'), spawn = require('child_process').spawn;
 
-
 var VERSION = null;
 module.exports = function (grunt) {
 	grunt.registerMultiTask('bustr', 'Bust yo chache', function () {
