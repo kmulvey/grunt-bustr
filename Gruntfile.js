@@ -33,6 +33,6 @@ module.exports = function(grunt) {
   //grunt.registerTask('test', ['clean', 'uglify', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'nodeunit']);
+  grunt.registerTask('default', ['jshint']);
 
 };
