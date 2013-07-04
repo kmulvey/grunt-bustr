@@ -1,7 +1,7 @@
-"use strict";
+var path = require('path'), fs = require('fs'), spawn = require('child_process').spawn;
 
-var path = require('path'), spawn = require('child_process').spawn, execSync = require('execSync'), fs = require('fs');
-var JS_CHANGED = [];
+'use strict';
+
 var VERSION = null;
 module.exports = function (grunt) {
 	grunt.registerMultiTask('bustr', 'Bust yo chache', function () {
@@ -13,26 +13,30 @@ module.exports = function (grunt) {
 		var ext = options.ext;
 		VERSION = options.version;
 
-		getChangedFiles(src, output,  JS_CHANGED, ext, task);
+		getChangedFiles(src, output, ext);
 	});
 	
-	
-	function getChangedFiles(source_dir, output_dir, changed_files, ext, task){
-		var diff = execSync.stdout('git diff --name-only master...' + getBranch() + ' ' + source_dir);
-		var files = diff.split( "\n" ).reverse().filter(function( file ) {
-			if(file === '') return false;
-			var input = file.trim();
-			var output = output_dir + ext + '/' + path.basename(file.trim());
-			var f = {};
-			f[output] = input;
-			changed_files.push(f);
-			updateVersion(path.basename(file.trim(), '.'+ext),ext);
-		});
-		grunt.task.run(task);
+	function getChangedFiles(source_dir, output_dir, ext){
+    getBranch(function(branch){
+			var diff = spawn('git', ['diff','--name-only', 'master...'+branch, source_dir]);
+			diff.stdout.setEncoding('utf8');
+			diff.stdout.on('data', function (data) {
+				var files = data.split( "\n" ).reverse().filter(function( file ) {
+					if(file === '') return false;
+					updateVersion(path.basename(file.trim(), '.'+ext),ext);
+				});
+			});
+			diff.stderr.on('data', function (data) {
+				console.log('ERROR GENERATING DIFF: ' + data);
+			});
+		});	
 	}
-	function getBranch(){
-		var diff = execSync.stdout("git status -b | grep '# On branch'");
-		return diff.replace('\n', '').replace('# On branch ', '');
+	function getBranch(cb){
+    var branch = spawn('git', ['symbolic-ref', 'HEAD']);
+		branch.stdout.setEncoding('utf8');
+		branch.stdout.on('data', function (data) {
+			cb(data.replace('refs/heads/', '').trim());
+		});
 	}
 	function updateVersion(file, ext){
 		if(file === '') return;
