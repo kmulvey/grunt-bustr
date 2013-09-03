@@ -1,37 +1,33 @@
 'use strict';
 
-var path = require('path'), fs = require('fs'), spawn = require('child_process').spawn;
+var path = require('path'), fs = require('fs');
 
 var VERSION = null;
 module.exports = function (grunt) {
 	grunt.registerMultiTask('bustr', 'Bust yo chache', function () {
 		var done = this.async();
-		var src = this.data.src;
-		var task = this.data.tasks;
+		var src = this.data;
 		var options = this.options();
-		var output = options.output;
 		VERSION = options.version;
-
-		statFile(src);
+		
+		grunt.file.recurse('src', function(abspath, rootdir, subdir, filename) {
+			statFile(abspath);
+		});
 	});
 	
 	// recursivly search the directory for files and return the mtime for each
-	function statFiles(path){
-		fs.readdirSync(path, function(err, files){
-			for(var i=0; i<files.length; i++){
-				if(fs.statSync(path+files[i]).isDirectory()){
-					statFiles(path+files[i]+'/');
-				}
-				updateVersion(path+files[i], fs.statSync(path+files[i]).mtime);
-			}
-		});
+	function statFile(path){
+		console.log(path + ' ... ' + fs.statSync(path).mtime);
+		updateVersion(path, fs.statSync(path).mtime);
 	}
 	
 	function updateVersion(file, time){
-		if(file === ''){ return;}
-		var data= fs.readFileSync(VERSION, 'utf8');
+		var data = fs.readFileSync(VERSION, 'utf8');
+		if(data === '') data = '{}'; // default it in case its a 0b file 
 		data = JSON.parse(data);
-		data[path.extname(file).replace('.','')][file] = Math.round((new Date()).getTime() / 1000);
+		
+		if(data[path.extname(file).replace('.','')] === undefined) data[path.extname(file).replace('.','')] = {};
+		data[path.extname(file).replace('.','')][path.basename(file)] = time;
 		fs.writeFileSync(VERSION, JSON.stringify(data), 'utf8');
 	}
 };
