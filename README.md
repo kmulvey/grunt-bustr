@@ -4,8 +4,14 @@ Sample config
 module.exports = function(grunt) {
   grunt.initConfig({
 		bustr: {
-			dist: {
-				src: 'src/',
+			css: {
+				src: 'src/css/',
+					options: {
+						version: 'version.json'
+					}   
+			},
+			js: {
+				src: 'src/js/',
 				options: {
 					version: 'version.json'
 				}
