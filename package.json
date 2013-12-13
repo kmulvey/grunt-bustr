@@ -1,7 +1,7 @@
 {
   "name": "grunt-bustr",
   "description": "Cache busting on a per file basis.",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "homepage": "https://github.com/kmulvey/grunt-bustr",
   "author": {
     "name": "Shutterstock Inc. - Kevin Mulvey",
