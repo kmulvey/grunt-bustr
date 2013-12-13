@@ -1,0 +1,8 @@
+mkdir -p files
+cd files
+for i in `seq 1 10`; do 
+	mkdir -p files-$i; 
+	for j in `seq 1 10`; do 
+		dd if=/dev/zero of=files-$i/$j bs=1k count=1 2> /dev/null; 
+	done; 
+done
