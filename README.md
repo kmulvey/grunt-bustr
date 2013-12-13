@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kmulvey/grunt-bustr.png?branch=v1.2.0)](https://travis-ci.org/kmulvey/grunt-bustr)
+
 ## Sample config
 
 ```
