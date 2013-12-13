@@ -1,4 +1,4 @@
-Sample config
+## Sample config
 
 ```
 module.exports = function(grunt) {
