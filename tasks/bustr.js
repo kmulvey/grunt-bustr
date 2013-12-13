@@ -23,10 +23,14 @@ module.exports = function (grunt) {
 	
 	function updateVersion(file, time, version){
 		var data = fs.readFileSync(version, 'utf8');
-		if(data === '') data = '{}'; // default it in case its a 0b file 
+		if(data === ''){
+			data = '{}'; // default it in case its a 0b file 
+		}
 		data = JSON.parse(data);
 		
-		if(data[path.extname(file).replace('.','')] === undefined) data[path.extname(file).replace('.','')] = {};
+		if(data[path.extname(file).replace('.','')] === undefined){
+			data[path.extname(file).replace('.','')] = {};
+		}
 		data[path.extname(file).replace('.','')][path.basename(file)] = time;
 		fs.writeFileSync(version, JSON.stringify(data), 'utf8');
 	}
