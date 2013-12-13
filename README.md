@@ -1,4 +1,6 @@
+Sample config
 
+```
 module.exports = function(grunt) {
   grunt.initConfig({
 		bustr: {
@@ -12,3 +14,4 @@ module.exports = function(grunt) {
 	});
   grunt.loadNpmTasks('grunt-bustr');
 };
+```
