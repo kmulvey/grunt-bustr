@@ -17,8 +17,9 @@ module.exports = function (grunt) {
 	// recursivly search the directory for files and return the mtime for each
 	function statFile(path, version){
 		var dt = new Date(fs.statSync(path).mtime);
-		console.log(path + ' ... ' + fs.statSync(path).mtime);
-		updateVersion(path, dt.getTime(), version);
+		var version_str = "" + dt.getFullYear() + dt.getMonth() + dt.getDate() + dt.getHours() + dt.getMinutes() + dt.getSeconds();
+		console.log(path + ' ... ' + dt);
+		updateVersion(path, version_str, version);
 	}
 	
 	function updateVersion(file, time, version){
