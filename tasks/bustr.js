@@ -29,7 +29,6 @@ module.exports = function (grunt) {
 	function statFile(path, version_file){
 		var dt = new Date(fs.statSync(path).mtime);
 		var version_str = "" + dt.getFullYear() + dt.getMonth() + dt.getDate() + dt.getHours() + dt.getMinutes() + dt.getSeconds();
-		console.log(path + ' ... ' + dt);
 		updateVersion(path, version_str, version_file);
 	}
 	
@@ -42,6 +41,11 @@ module.exports = function (grunt) {
 		
 		if(data[path.extname(file).replace('.','')] === undefined){
 			data[path.extname(file).replace('.','')] = {};
+		}
+
+		// log only changes files
+		if(data[path.extname(file).replace('.','')][path.basename(file)] !== time){
+			grunt.log.write(file + " .... " + time);
 		}
 		data[path.extname(file).replace('.','')][path.basename(file)] = time;
 		fs.writeFileSync(version_file, JSON.stringify(data), 'utf8');
