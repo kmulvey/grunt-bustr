@@ -4,7 +4,6 @@ var path = require('path'), fs = require('fs');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('bustr', 'Bust yo chache', function () {
-		var done = this.async();
 		var src = this.data.src;
 		var options = this.options();
 		var version_file = options.version;
@@ -20,7 +19,7 @@ module.exports = function (grunt) {
 		}
 
 		// find files to process
-		grunt.file.recurse(src, function(abspath, rootdir, subdir, filename) {
+		grunt.file.recurse(src, function(abspath) {
 			statFile(abspath, version_file);
 		});
 	});
