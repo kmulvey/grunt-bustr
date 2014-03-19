@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 		var version_file = options.version;
 		
 		// was version passed?
-		if(version_file){
+		if(!version_file){
 			grunt.fail.fatal("version was not passed, please specify a version file.");
 		}
 		
