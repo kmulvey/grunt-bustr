@@ -35,15 +35,16 @@ module.exports = function (grunt) {
 	function updateVersion(file, time, version_file){
 		var data = fs.readFileSync(version_file, 'utf8');
 		if(data === ''){
-			data = '{}'; // default it in case its a 0b file 
+			data = '{}'; // default, in case its a 0b file 
 		}
 		data = JSON.parse(data);
-		
+	
+		// create object if it doesnt exist
 		if(data[path.extname(file).replace('.','')] === undefined){
 			data[path.extname(file).replace('.','')] = {};
 		}
 
-		// log only changes files
+		// log only changed files
 		if(data[path.extname(file).replace('.','')][path.basename(file)] !== time){
 			grunt.log.write(file + " .... " + time);
 		}
