@@ -1,6 +1,16 @@
-[![Build Status](https://travis-ci.org/kmulvey/grunt-bustr.png?branch=v1.2.0)](https://travis-ci.org/kmulvey/grunt-bustr)
+[![Build Status](https://travis-ci.org/kmulvey/grunt-bustr.svg?branch=master)](https://travis-ci.org/kmulvey/grunt-bustr)
 
-## Sample config
+# Grunt Bustr
+
+A static asset versioning plugin for [gruntjs](http://gruntjs.com/). 
+
+
+### Getting started
+
+
+
+
+### Sample config
 
 ```
 module.exports = function(grunt) {
