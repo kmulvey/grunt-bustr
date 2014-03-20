@@ -44,6 +44,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bustr');
 };
 ```
+### Contributing
+Patches and/or ideas for improvement are welcome.
 
 ### License
 Copyright (c) 2014 Kevin Mulvey, Shutterstock Inc.  
