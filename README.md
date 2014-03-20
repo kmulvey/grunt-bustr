@@ -13,7 +13,7 @@ Install to your project by either adding grunt-bustr to you package.json as a de
 
 ### Sample config
 
-```
+```javascript
 module.exports = function(grunt) {
   grunt.initConfig({
 		bustr: {
