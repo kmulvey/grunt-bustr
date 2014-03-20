@@ -44,3 +44,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bustr');
 };
 ```
+
+### License
+Copyright (c) 2014 Kevin Mulvey, Shutterstock Inc.  
+Licensed under the [GNU LGPL v3](https://www.gnu.org/licenses/lgpl.html) license.
