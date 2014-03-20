@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 				src: 'src/css/',
 					options: {
 						version: 'version.json'
-					}   
+					}
 			},
 			js: {
 				src: 'src/js/',
