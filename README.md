@@ -28,9 +28,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
 		bustr: {
 			css: {
-				src: 'src/css/',
+				src: 'src/css/', // top level directory to look for files
 					options: {
-						version: 'version.json'
+						version: 'version.json' // file that the build values will be written to
 					}
 			},
 			js: {
