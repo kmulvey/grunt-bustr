@@ -15,7 +15,7 @@ Lots of cache busting plugins append a MD5 or similar hash to the file name in o
 * Grunt >= 0.4
 * An empty json file to store the values
 
-Install to your project by either adding grunt-bustr to you package.json as a dependency or simple run `npm install grunt-bustr`.  
+Install to your project by either adding grunt-bustr to you package.json as a dependency or simple run `npm install grunt-bustr`.  Create an empty file to store the values by running `touch version.json`, then specify that file in the config (example below).
 
 
 
