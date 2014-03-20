@@ -7,6 +7,7 @@ A static asset versioning plugin for [gruntjs](http://gruntjs.com/).
 
 ### Getting started
 
+Install to your project by either adding grunt-bustr to you package.json as a dependency or simple run `npm install grunt-bustr`.  Grunt >= 0.4 is required.
 
 
 
