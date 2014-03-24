@@ -3,7 +3,7 @@
 var path = require('path'), fs = require('fs');
 
 module.exports = function (grunt) {
-	grunt.registerMultiTask('bustr', 'Bust yo chache', function () {
+	grunt.registerMultiTask('bustr', 'Bust yo cache', function () {
 		var src = this.data.src;
 		var options = this.options();
 		var version_file = options.version;
