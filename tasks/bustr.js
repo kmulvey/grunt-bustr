@@ -40,7 +40,7 @@ module.exports = function (grunt) {
 		try{
 			data = JSON.parse(data);
 		} catch (e) {
-	  	grunt.fail.fatal("Problem parsing the version file: ", e); 
+			grunt.fail.fatal("Problem parsing the version file: ", e);
 		}
 		
 		// create object if it doesnt exist
