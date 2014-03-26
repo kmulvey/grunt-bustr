@@ -36,8 +36,13 @@ module.exports = function (grunt) {
 		if(data === ''){
 			data = '{}'; // default, in case its a 0b file 
 		}
-		data = JSON.parse(data);
-	
+		
+		try{
+			data = JSON.parse(data);
+		} catch (e) {
+	  	grunt.fail.fatal("Problem parsing the version file: ", e); 
+		}
+		
 		// create object if it doesnt exist
 		if(data[path.extname(file).replace('.','')] === undefined){
 			data[path.extname(file).replace('.','')] = {};
