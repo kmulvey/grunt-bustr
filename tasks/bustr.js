@@ -50,7 +50,7 @@ module.exports = function (grunt) {
 
 		// log only changed files
 		if(data[path.extname(file).replace('.','')][path.basename(file)] !== time){
-			grunt.log.write(file + " .... " + time);
+			grunt.log.writeln(file + " .... " + time);
 		}
 		data[path.extname(file).replace('.','')][path.basename(file)] = time;
 		fs.writeFileSync(version_file, JSON.stringify(data), 'utf8');
