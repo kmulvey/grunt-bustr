@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/kmulvey/grunt-bustr.svg?branch=master)](https://travis-ci.org/kmulvey/grunt-bustr)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 # Grunt Bustr
 
