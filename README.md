@@ -52,4 +52,4 @@ Patches and/or ideas for improvement are welcome.
 
 ### License
 Copyright (c) 2014 Kevin Mulvey, Shutterstock Inc.  
-Licensed under the [GNU LGPL v3](https://www.gnu.org/licenses/lgpl.html) license.
+Licensed under the [Apache v2](https://www.apache.org/licenses/LICENSE-2.0.html) license.
