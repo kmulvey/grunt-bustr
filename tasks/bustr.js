@@ -10,12 +10,13 @@ module.exports = function (grunt) {
 		
 		// was version passed?
 		if(!version_file){
-			grunt.fail.fatal("version was not passed, please specify a version file.");
+			grunt.log.writeln("version was not passed, creating bustr.json");
+			version_file = "bustr.json";
 		}
 		
 		// check if version file exists
 		if(!grunt.file.exists(version_file)){
-			grunt.fail.fatal("version file does not exist, please create an empty file.");
+			grunt.log.writeln(version_file + " does not exist, creating it.");
 		}
 
 		// find files to process
@@ -40,7 +41,7 @@ module.exports = function (grunt) {
 		try{
 			data = JSON.parse(data);
 		} catch (e) {
-			grunt.fail.fatal("Problem parsing the version file: ", e);
+			grunt.fail.fatal("Problem parsing the version file, it may not be json");
 		}
 		
 		// create object if it doesnt exist
@@ -53,6 +54,9 @@ module.exports = function (grunt) {
 			grunt.log.writeln(file + " .... " + time);
 		}
 		data[path.extname(file).replace('.','')][path.basename(file)] = time;
-		fs.writeFileSync(version_file, JSON.stringify(data), 'utf8');
+		fs.writeFile(version_file, JSON.stringify(data), {encoding: 'utf8'}, function (err) {
+			if (err) throw err;
+			grunt.log.writeln('Wrote file ' + version_file);
+		});
 	}
 };
