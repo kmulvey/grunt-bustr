@@ -17,6 +17,7 @@ module.exports = function (grunt) {
 		// check if version file exists
 		if(!grunt.file.exists(version_file)){
 			grunt.log.writeln(version_file + " does not exist, creating it.");
+			fs.openSync(version_file, 'w');
 		}
 
 		// find files to process
@@ -54,9 +55,6 @@ module.exports = function (grunt) {
 			grunt.log.writeln(file + " .... " + time);
 		}
 		data[path.extname(file).replace('.','')][path.basename(file)] = time;
-		fs.writeFile(version_file, JSON.stringify(data), {encoding: 'utf8'}, function (err) {
-			if (err) throw err;
-			grunt.log.writeln('Wrote file ' + version_file);
-		});
+		grunt.file.write(version_file, JSON.stringify(data), {encoding: 'utf8'});
 	}
 };
