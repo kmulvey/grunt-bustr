@@ -23,9 +23,9 @@
   "main": "Gruntfile.js",
   "devDependencies": {
     "grunt": "",
-		"grunt-contrib-jshint": "",
-  	"grunt-contrib-nodeunit": ""
-	},
+    "grunt-contrib-jshint": "",
+    "grunt-contrib-nodeunit": ""
+  },
   "peerDependencies": {
     "grunt": "~0.4.0"
   },
