@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 		});
 	});
 	
-	// recursively search the directory for files and return the mtime for each
+	// return the mtime for each file
 	function statFile(path, version_file){
 		var dt = new Date(fs.statSync(path).mtime);
 		var version_str = "" + dt.getFullYear() + dt.getMonth() + dt.getDate() + dt.getHours() + dt.getMinutes() + dt.getSeconds();
