@@ -16,7 +16,6 @@ This plugin uses the mtime of the files it finds in the directories you provide 
 #### Requirements
 
 * Grunt >= 0.4
-* An empty json file to store the values
 
 #### Installing
 
