@@ -1,5 +1,6 @@
 mkdir -p files
 cd files
+
 for i in `seq 1 10`; do 
 	mkdir -p files-$i; 
 	for j in `seq 1 10`; do 
